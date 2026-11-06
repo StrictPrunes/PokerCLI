@@ -1,8 +1,6 @@
-#ifndef CARD_H
-#define CARD_H
+#pragma once
 
 #include <iostream>
-#define ACE_HIGH
 
 using namespace std;
 
@@ -36,5 +34,3 @@ class Card{
         int rank;
         int suit;
 };
-
-#endif //CARD_H

@@ -1,15 +1,9 @@
-#ifndef DECK_H
-#define DECK_H
+#pragma once
 
 #include <iostream>
-#include "card.hpp"
+#include "Card.hpp"
 
 using namespace std;
-
-struct Node  {  
-    Card card;  
-    Node* next;  
-}; 
 
 class Deck {
     public:
@@ -39,5 +33,3 @@ class Deck {
     private:
         vector<Card> cards;
 };
-
-#endif //DECK_H

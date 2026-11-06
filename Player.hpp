@@ -1,15 +1,15 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 #include <iostream>
+#include "Deck.hpp"
 
 using namespace std;
 
 class Player {
-    Public:
+    public:
         Player(Deck newHand, string newName, int newChips);
         Player(string newName, int newChips);
-        Player()
+        Player();
 
         Deck highHand(Deck communityCards);
         //returns strongest hand player can make
@@ -25,17 +25,18 @@ class Player {
         //adds win to chips
         void displayHand(ostream& outs);
         //outputs players hand
+        
         int getBet();
         //returns bet amount
         int getChips();
         //return chips
+        string getName();
+        bool getActive();
 
-    Private:
+    private:
         Deck hand;
         string name;
         int chips;
         int bet;
-        bool active;
-}
-
-#endif //PLAYER_H
+        bool active;    
+};

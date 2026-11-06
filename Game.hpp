@@ -1,14 +1,17 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 
 #include <iostream>
+#include "Player.hpp"
+#include "Deck.hpp"
 
 using namespace std;
 
 class Game {
-    Public:
+    public:
         Game();
-
+        
+        void addPlayer();
+        
         void addChips(int chip);
         //adds given int to pot
         void addCard(Card c);
@@ -16,19 +19,18 @@ class Game {
         int emptyPot();
         //returns pot and sets it to 0
         void displayCommunityCards(ostream& outs);
-        void start(Player (&players)[numPlayers], Deck (&deck)[n], int dealer, int &turn);
+        void start();
         //deals cards to players, takes small and big blind, sets turn to player after big blind
-        void bettingRound(player (&players)[numPlayers], int &turn, int dealer);
+        void bettingRound();
         //takes bets from players, sets turn to dealer
-        void showdown(player (&players)[numPlayers]);
+        void showdown();
         //determines which players has the best hand and awards pot to that player
 
-    Private:
+    private:
         int pot;
         int currentPlayer;
         int currentDealer;
+        int currentRound;
         vector<Player> players;
         Deck communityCards;
-}
-
-#endif //GAME_H
+};
