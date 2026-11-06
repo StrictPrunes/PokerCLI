@@ -7,6 +7,8 @@ using namespace std;
 
 class Game {
     Public:
+        Game();
+
         void addChips(int chip);
         //adds given int to pot
         void addCard(Card c);
@@ -23,7 +25,10 @@ class Game {
 
     Private:
         int pot;
-        vector<Card> communityCards;
+        int currentPlayer;
+        int currentDealer;
+        vector<Player> players;
+        Deck communityCards;
 }
 
 #endif //GAME_H

@@ -7,8 +7,9 @@ using namespace std;
 
 class Player {
     Public:
-        Player(Deck newHand, int newChips);
-        Player();
+        Player(Deck newHand, string newName, int newChips);
+        Player(string newName, int newChips);
+        Player()
 
         Deck highHand(Deck communityCards);
         //returns strongest hand player can make
@@ -31,8 +32,10 @@ class Player {
 
     Private:
         Deck hand;
+        string name;
         int chips;
         int bet;
+        bool active;
 }
 
 #endif //PLAYER_H

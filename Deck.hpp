@@ -18,7 +18,6 @@ class Deck {
 
     Card drawTopCard();
     //draws the first card in the deck. Deck is a stack following LIFO.
-    
     //Precondition: Deck is not empty
     //Postcondition: returns the card at the head of the deck
     bool addCard(Card c);
@@ -33,8 +32,6 @@ class Deck {
 
     void shuffle();
     //fill deck and shuffle
-    Card draw();
-    //return top card and discard it from deck
     void burn();
     //discard top card
 
