@@ -17,7 +17,7 @@ class Player {
         //removes all cards from hand, sets bet to 0
         int takeBet();
         //return bet amount and takes from players chips
-        void AddCard(Card c);
+        void addCard(Card c);
         //adds card to hand if there is room
         void makeBet(int newBet);
         //takes int from chips and adds to bet if there's enough
