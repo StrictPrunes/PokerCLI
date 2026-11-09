@@ -7,10 +7,11 @@ using namespace std;
 int startSelection(const UI& ui);
 
 int main(){
-    UI ui;
     Game game;
     
-    int ins = startSelection(ui);
+    cout << "\33[?1049h"; //enter alternate screen buffer window
+
+    int ins = startSelection();
 
     while(ins != 0){
 
@@ -26,22 +27,24 @@ int main(){
         game.bettingRound();
         game.showdown();
 
-        ui.setPrevGame(true);
+        UI::setPrevGame(true);
 
-        ins = startSelection(ui);
+        ins = startSelection();
     }
-
+    
+    cout << "\33[?1049h"; //exit alternate screen buffer window
+    
     return 0;
 }
 
-int startSelection(const UI& ui){
+int startSelection(){
     int ins = 0;
 
     while(ins != 1 && ins != 2 && ins != 0){
-        ins = ui.startScreen(); 
+        ins = UI::startScreen(); 
 
         if (ins == 3) {
-            ui.rules();
+            UI::rules();
         } else if(ins != 1 && ins != 2 && ins != 0){               
             cout << "Invalid input: Select 1, 2, 3, or 0";
         }

@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Player.hpp"
 #include "Deck.hpp"
+#include <vector>
 
 using namespace std;
 
@@ -11,14 +12,15 @@ class Game {
         Game();
         
         void addPlayer();
-        
+        //add a new player
         void addChips(int chip);
-        //adds given int to pot
+        //adds given chips to pot
         void addCard(Card c);
         //adds card to community cards
         int emptyPot();
         //returns pot and sets it to 0
         void displayCommunityCards(ostream& outs);
+        //displays
         void start();
         //deals cards to players, takes small and big blind, sets turn to player after big blind
         void bettingRound();
