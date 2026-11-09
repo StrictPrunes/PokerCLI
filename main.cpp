@@ -1,14 +1,24 @@
 #include <iostream>
-#include "ui.hpp"
 #include "Game.hpp"
+#include "Player.hpp"
 
 using namespace std;
 
-int startSelection(const UI& ui);
+int startScreen();
+//Clears terminal window, then displays 1. New game, 2. Continue Last Game, 3. Rules, 4. Exit
+//Continue last game will be unavailable if prevGame is false
+//returns 1, 2, 3, 0
+void rules();
+//Clears terminal window and displays poker rules
+//exits rule display on input of 1
+Player playerCreation(const vector<Player>& players);
+//Clears terminal window, ui for player creation. displays current players and input areas for a new player
+int startSelection();
 
 int main(){
     Game game;
-    
+    bool prevGame;
+
     cout << "\33[?1049h"; //enter alternate screen buffer window
 
     int ins = startSelection();
@@ -18,7 +28,8 @@ int main(){
         char cont = 'Y';
         
         while(cont == 'Y' || cont == 'y'){
-            game.addPlayer();
+            Player newPlayer = playerCreation(game.getPlayers());
+            game.addPlayer(newPlayer);
             cout << "Add another player? (Y/N)";
             cin >> cont;
         }
@@ -27,7 +38,7 @@ int main(){
         game.bettingRound();
         game.showdown();
 
-        UI::setPrevGame(true);
+        prevGame = true;
 
         ins = startSelection();
     }
@@ -41,10 +52,10 @@ int startSelection(){
     int ins = 0;
 
     while(ins != 1 && ins != 2 && ins != 0){
-        ins = UI::startScreen(); 
+        ins = startScreen(); 
 
         if (ins == 3) {
-            UI::rules();
+            rules();
         } else if(ins != 1 && ins != 2 && ins != 0){               
             cout << "Invalid input: Select 1, 2, 3, or 0";
         }

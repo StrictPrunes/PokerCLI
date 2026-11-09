@@ -11,7 +11,7 @@ class Player {
         Player(string newName, int newChips);
         Player();
 
-        Deck highHand(Deck communityCards);
+        Deck highHand(const Deck& communityCards);
         //returns strongest hand player can make
         void resetHand();
         //removes all cards from hand, sets bet to 0
