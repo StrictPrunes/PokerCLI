@@ -32,12 +32,19 @@ void Game::displayCommunityCards(ostream& outs){
         
 void Game::start(){
     baseDeck.shuffle();
-    
+
     for(Player p : players){
         p.addCard(baseDeck.drawTopCard());
         p.addCard(baseDeck.drawTopCard());
     }
 
+    currentDealer = 0;
+    players[currentDealer+1].makeBet(5);
+    players[currentDealer+2].makeBet(10);
+    pot += players[currentDealer+1].takeBet();
+    pot += players[currentDealer+2].takeBet();
+
+    currentPlayer = currentDealer + 3;
 }
         
 void Game::bettingRound(){
