@@ -19,7 +19,7 @@ class Player {
         //return bet amount and takes from players chips
         void addCard(Card c);
         //adds card to hand if there is room
-        void makeBet(int newBet);
+        bool makeBet(int newBet);
         //takes int from chips and adds to bet if there's enough
         void awardChips(int win);
         //adds win to chips

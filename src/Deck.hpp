@@ -30,4 +30,5 @@ class Deck {
 
     private:
         vector<Card> cards;
+        int numCards;
 };

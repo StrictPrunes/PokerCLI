@@ -38,4 +38,5 @@ class Game {
         int currentRound;
         vector<Player> players;
         Deck communityCards;
+        Deck baseDeck;
 };
