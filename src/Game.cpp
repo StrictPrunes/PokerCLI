@@ -1,4 +1,3 @@
-//hi
 #include <iostream>
 #include "Game.hpp"
 
