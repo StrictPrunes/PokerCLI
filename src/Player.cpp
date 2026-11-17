@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Player.hpp"
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -16,7 +18,24 @@ Player::Player() : chips(0), bet(0), active(false){
 }
 
 Deck Player::highHand(const Deck& communityCards){
-    
+    vector<Card> plrHand = hand.getCards();
+    vector<Card> commHand = communityCards.getCards();
+
+    plrHand.insert(plrHand.end(),commHand.begin(), commHand.end());
+
+    sort(plrHand.begin(), plrHand.end(), [](const Card &a, const Card &b) 
+    { return a < b; });
+
+    int numSameSuit;
+    for(int i = 0; i<plrHand.size(); i++){
+        if(plrHand[i].getSuit() != plrHand[i+1].getSuit()){
+            numSameSuit++;
+        }
+    }
+
+    if(numSameSuit >= 5){
+        
+    }
 }
 
 void Player::resetHand(){
@@ -48,7 +67,7 @@ void Player::awardChips(int win){
 }
 
 void Player::displayHand(ostream& outs){
-    hand.printDeck();
+    hand.printDeck(cout);
 }
 
 void Player::setActive(bool newVal){

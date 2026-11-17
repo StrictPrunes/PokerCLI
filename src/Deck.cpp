@@ -83,7 +83,7 @@ void Deck::burn(){
     cards.pop_back();
 }
 
-vector<Card> Deck::getCards(){
+vector<Card> Deck::getCards() const{
     return cards;
 }
 

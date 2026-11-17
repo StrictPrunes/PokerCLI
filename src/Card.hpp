@@ -30,6 +30,8 @@ class Card{
         //returns true if card is a jack, queen, or king
         bool isValid();                             
         //returns true if rank is between 1 and 13 and suit is between 0 and 3
+        int getRank();
+        int getSuit();
     private:
         int rank;
         int suit;

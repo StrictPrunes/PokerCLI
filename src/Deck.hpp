@@ -28,7 +28,7 @@ class Deck {
         void burn();
         //discard top card
 
-        vector<Card> getCards();
+        vector<Card> getCards() const;
 
     private:
         vector<Card> cards;
