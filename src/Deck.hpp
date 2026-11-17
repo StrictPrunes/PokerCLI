@@ -14,9 +14,9 @@ class Deck {
         //draws the first card in the deck.
         //Precondition: Deck is not empty
         //Postcondition: returns the card at the end of the vector
-        bool addCard(Card c);
+        void addCard(Card c);
         //Adds card c to the deck
-        void printDeck();
+        void printDeck(ostream& outs);
         //prints the whole deck in an easy to understand format
         bool isEmpty();
         //returns true if deck is empty; else returns false
@@ -27,6 +27,8 @@ class Deck {
         //fill deck and shuffle
         void burn();
         //discard top card
+
+        vector<Card> getCards();
 
     private:
         vector<Card> cards;
