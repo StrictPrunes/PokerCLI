@@ -26,7 +26,7 @@ int Game::emptyPot(){
 }
         
 void Game::displayCommunityCards(ostream& outs){
-    communityCards.printDeck();
+    communityCards.printDeck(cout);
 }
         
 void Game::start(){

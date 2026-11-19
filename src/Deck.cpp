@@ -8,6 +8,11 @@ using namespace std;
 
 Deck::Deck() {
     numCards = 0;
+    handType = {-1};
+}
+
+Deck::Deck(vector<Card> c, array<int,3> handType) : cards(c), handType(handType){
+
 }
 
 Card Deck::drawTopCard(){
@@ -52,7 +57,7 @@ Card Deck::findHighCard() const {
         }
         return high;
     }else{
-        return;
+        return Card();
     }
     
 }
@@ -87,4 +92,10 @@ vector<Card> Deck::getCards() const{
     return cards;
 }
 
+void Deck::setHandType(array<int,3> newVal){
+    handType = newVal;
+}
 
+array<int,3> Deck::getHandType(){
+    return handType;
+}
