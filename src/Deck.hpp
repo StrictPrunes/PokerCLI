@@ -37,5 +37,5 @@ class Deck {
     private:
         vector<Card> cards;
         int numCards;
-        array<int,3> handType; //first element is hand index (straight flush is 0), second is rank tiebreaker, third is suit tiebreaker
+        array<int,3> handType; //first element is hand index (straight flush is 0), second is rank tiebreaker, third is secondary tiebreaker
 };
