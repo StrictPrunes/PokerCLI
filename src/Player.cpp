@@ -53,7 +53,10 @@ Deck Player::highHand(const Deck& communityCards){
             numStraight++;
         } else if(plrHand[i].getRank() == plrHand.at(i+1).getRank() + 1){
             numStraight++;
-
+            
+            if(plrHand[i+1].getRank() == 2 && plrHand[0].getRank() == 1){
+                numStraight++;
+            }
         } else {
             numStraight = 1;
             tempIndex = i+1;
@@ -135,7 +138,13 @@ Deck Player::highHand(const Deck& communityCards){
 
     //next is straight
     if(straightIndex != -1){
-        vector<Card> out(plrHand.begin() + straightIndex, plrHand.begin() + straightIndex + 5);
+        vector<Card> out;
+        if(plrHand[straightIndex].getRank() == 5){
+            out = vector<Card>(plrHand.begin() + straightIndex, plrHand.begin() + straightIndex + 4);
+            out.push_back(plrHand[0]);
+        } else{
+            out = vector<Card>(plrHand.begin() + straightIndex, plrHand.begin() + straightIndex + 5);
+        }
 
         Deck outs(out, {5, out[0].getRank()});
         return outs;

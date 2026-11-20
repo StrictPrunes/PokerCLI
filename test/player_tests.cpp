@@ -223,14 +223,14 @@ TEST_CASE("highest hand is high card"){
     Deck commCards;
     commCards.addCard(Card(13,3));
     commCards.addCard(Card(4,1));
-    commCards.addCard(Card(1,1));
+    commCards.addCard(Card(9,1));
     commCards.addCard(Card(8,0));
     commCards.addCard(Card(3,2));
 
     Deck output = test.highHand(commCards);
 
-    vector<Card> expCards = {Card(1,1), Card(13,3), Card(8,0), Card(5,2), Card(4,1)};
-    array<int,3> expHandType = {9, 1, 13};
+    vector<Card> expCards = {Card(13,3), Card(9,1), Card(8,0), Card(5,2), Card(4,1)};
+    array<int,3> expHandType = {9, 13, 9};
 
     REQUIRE(output.getCards() == expCards);
     REQUIRE(output.getHandType() == expHandType);
