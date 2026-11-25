@@ -75,10 +75,10 @@ void Deck::shuffle(){
     for (int i  = 0; i < numCards; i ++){
 
         int r = rand() % 52;
-        Card temp = cards[0];
+        Card temp = cards[i];
 
-        cards[0] = cards[r];
-        cards[r] = temp;
+        cards[i] = cards[r-1];
+        cards[r-1] = temp;
 
     }
 

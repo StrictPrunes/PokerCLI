@@ -31,6 +31,8 @@ class Game {
 
         vector<Player> getPlayers();
         //returns current players
+        int getPot();
+        int getCurrentPlayer();
     private:
         int pot;
         int currentPlayer;

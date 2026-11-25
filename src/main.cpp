@@ -33,13 +33,25 @@ int main(){
         while(cont == 'Y' || cont == 'y'){
             Player newPlayer = playerCreation(game.getPlayers());
             game.addPlayer(newPlayer);
-            cout << "Add another player? (Y/N)";
-            cin >> cont;
+            do {
+                if(cont != 'Y' && cont != 'y' && cont != 'N' && cont != 'n'){
+                    cout << "\nPlease select Y/N\n";
+                }
+                cout << "Add another player? (Y/N) ";
+                cin >> cont;
+            } while (cont != 'Y' && cont != 'y' && cont != 'N' && cont != 'n');
         }
-        /*
-        game.start();
-        game.bettingRound();
-        game.showdown();*/
+
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        //game.start();
+        for(int i = 0; i < 5; i++){
+            topBanner("Round " + to_string(i + 1));
+            cout << "Round UI Test " << i + 1;
+            
+            cin.get();
+            //game.bettingRound();
+        }
+        //game.showdown();
 
         prevGame = true;
 

@@ -38,12 +38,12 @@ void Game::start(){
     }
 
     currentDealer = 0;
-    players[currentDealer+1].makeBet(5);
-    players[currentDealer+2].makeBet(10);
-    pot += players[currentDealer+1].takeBet();
-    pot += players[currentDealer+2].takeBet();
+    players[(currentDealer+1) % players.size()].makeBet(5);
+    players[(currentDealer+2) % players.size()].makeBet(10);
+    pot += players[(currentDealer+1) % players.size()].takeBet();
+    pot += players[(currentDealer+2) % players.size()].takeBet();
 
-    currentPlayer = currentDealer + 3;
+    currentPlayer = (currentDealer + 3) % players.size();
 }
         
 void Game::bettingRound(){
@@ -56,4 +56,11 @@ void Game::showdown(){
 
 vector<Player> Game::getPlayers(){
     return players;
+}
+
+int Game::getPot(){
+    return pot;
+}
+int Game::getCurrentPlayer(){
+    return currentPlayer;
 }

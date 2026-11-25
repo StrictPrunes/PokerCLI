@@ -5,11 +5,11 @@
 
 using namespace std;
 
-Player::Player(Deck newHand, string newName, int newChips) : hand(newHand), name(newName), chips(newChips){
+Player::Player(Deck newHand, string newName, int newChips) : hand(newHand), name(newName), chips(newChips), bet(0){
 
 }
 
-Player::Player(string newName, int newChips) : name(newName), chips(newChips){
+Player::Player(string newName, int newChips) : name(newName), chips(newChips), bet(0){
 
 }
 
