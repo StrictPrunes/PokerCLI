@@ -73,11 +73,11 @@ Deck Player::highHand(const Deck& communityCards){
         if(plrHand[straightIndex].getSuit() == flushSuit){
             if(plrHand[straightIndex].getRank() == 1){  //hand contains royal flush
                 vector<Card> out(plrHand.begin(), plrHand.begin() + 5);
-                Deck outs(out, {0, -1, -1});
+                Deck outs(out, 0);
                 return outs;
             } else {    //hand contains straight flush
                 vector<Card> out(plrHand.begin() + straightIndex, plrHand.begin() + straightIndex + 5);
-                Deck outs(out, {1, plrHand[straightIndex].getRank()});
+                Deck outs(out, 1);
                 return outs;
             }
         }
@@ -95,7 +95,7 @@ Deck Player::highHand(const Deck& communityCards){
                     break;
                 }    
             }
-            Deck outs(out, {2, -1, -1});
+            Deck outs(out, 2);
             return outs;
         }
     }
@@ -121,7 +121,7 @@ Deck Player::highHand(const Deck& communityCards){
             copy_if(plrHand.begin(), plrHand.end(), back_inserter(out),
             [pairRank1](Card c) { return c.getRank() == pairRank1; });
 
-            Deck outs(out, {3, threeRank, pairRank1});
+            Deck outs(out, 3);
             return outs;
         }
     }
@@ -132,7 +132,7 @@ Deck Player::highHand(const Deck& communityCards){
         copy_if(plrHand.begin(), plrHand.end(), back_inserter(out),
         [flushSuit, out](Card c) { if(out.size() >= 5){return false;} return c.getSuit() == flushSuit; });
 
-        Deck outs(out, {4, out[0].getRank(), out[1].getRank()});
+        Deck outs(out, 4);
         return outs;
     }
 
@@ -146,7 +146,7 @@ Deck Player::highHand(const Deck& communityCards){
             out = vector<Card>(plrHand.begin() + straightIndex, plrHand.begin() + straightIndex + 5);
         }
 
-        Deck outs(out, {5, out[0].getRank()});
+        Deck outs(out, 5);
         return outs;
     }
 
@@ -163,7 +163,7 @@ Deck Player::highHand(const Deck& communityCards){
                 out.push_back(c);
             }    
         }
-        Deck outs(out, {6, threeRank});
+        Deck outs(out, 6);
         return outs;
     }
     
@@ -182,7 +182,7 @@ Deck Player::highHand(const Deck& communityCards){
                 break;
             }    
         }
-        Deck outs(out, {7, pairRank1, pairRank2});
+        Deck outs(out, 7);
         return outs;
     }
 
@@ -199,13 +199,13 @@ Deck Player::highHand(const Deck& communityCards){
                 out.push_back(c);
             }    
         }
-        Deck outs(out, {8, pairRank1, out[2].getRank()});
+        Deck outs(out, 8);
         return outs;
     }
 
     //high card
     vector<Card> out(plrHand.begin(), plrHand.begin() +5);
-    return Deck(out, {9, out[0].getRank(), out[1].getRank()});
+    return Deck(out, 9);
 }
 
 void Player::resetHand(){

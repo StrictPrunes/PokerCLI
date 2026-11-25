@@ -11,7 +11,7 @@ Deck::Deck() {
     handType = {-1};
 }
 
-Deck::Deck(vector<Card> c, array<int,3> handType) : cards(c), handType(handType){
+Deck::Deck(vector<Card> c, int handType) : cards(c), handType(handType){
 
 }
 
@@ -92,10 +92,10 @@ vector<Card> Deck::getCards() const{
     return cards;
 }
 
-void Deck::setHandType(array<int,3> newVal){
+void Deck::setHandType(int newVal){
     handType = newVal;
 }
 
-array<int,3> Deck::getHandType(){
+int Deck::getHandType(){
     return handType;
 }

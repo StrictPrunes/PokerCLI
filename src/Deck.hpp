@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "Card.hpp"
-#include <array>
+#include <vector>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ class Deck {
     public:
         Deck();
         //initializes an empty deck
-        Deck(vector<Card> c, array<int,3> handType);
+        Deck(vector<Card> c, int handType);
 
         Card drawTopCard();
         //draws the first card in the deck.
@@ -31,11 +31,11 @@ class Deck {
         //discard top card
 
         vector<Card> getCards() const;
-        void setHandType(array<int,3> newVal);
-        array<int,3> getHandType();
+        void setHandType(int newVal);
+        int getHandType();
 
     private:
         vector<Card> cards;
         int numCards;
-        array<int,3> handType; //first element is hand index (straight flush is 0), second is rank tiebreaker, third is secondary tiebreaker
+        int handType; //hand index (straight flush is 0)
 };
