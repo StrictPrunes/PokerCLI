@@ -26,7 +26,7 @@ int main(){
 
     int ins = startSelection();
 
-    /*while(ins != 4){
+    while(ins != 4){
 
         char cont = 'Y';
         
@@ -36,15 +36,15 @@ int main(){
             cout << "Add another player? (Y/N)";
             cin >> cont;
         }
-        
+        /*
         game.start();
         game.bettingRound();
-        game.showdown();
+        game.showdown();*/
 
         prevGame = true;
 
         ins = startSelection();
-    }*/
+    }
     
     cout << "\33[?1049l"; //exit alternate screen buffer window
     
@@ -74,6 +74,8 @@ int startScreen(){
 
 void rules(){
     topBanner("RULES");
+    cout << "1.\n";
+    cout << "2.\n";
     cout << "Press enter to exit.\n";
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
     cin.get();
@@ -93,4 +95,22 @@ int startSelection(){
     }
 
     return ins;
+}
+
+Player playerCreation(const vector<Player>& players){
+    topBanner("PLAYER CREATION");
+    cout << "WELCOME TO PLAYER CREATION\n\nCurrent Players\n";
+    for(Player p : players){
+        cout << p.getName() << ": " << p.getChips() << " Chips\n";
+    }
+
+    string name;
+    int chips;
+    cout << "\nCreate a new player...\nEnter name: ";
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    getline(cin, name);
+    cout << "Enter chips: ";
+    cin >> chips;
+
+    return Player(name, chips);
 }
