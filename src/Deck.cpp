@@ -31,12 +31,9 @@ void Deck::addCard(Card c){
 }
 
 void Deck::printDeck(ostream& outs){
-
-    for(int i  = 0; i < numCards; i ++){
-        
+    for(int i = 0; i < numCards; i ++){
         outs << cards[i] << endl;
-        
-    };
+    }
 
 }
 
@@ -63,17 +60,15 @@ Card Deck::findHighCard() const {
 }
 
 void Deck::shuffle(){
-
     numCards = 52;
-     for (int i = 0; i < 4; i++){
+    for (int i = 0; i < 4; i++){
         for (int n = 1; n < 14; n++){
-            cards[numCards] = Card(n, i);
+            cards.push_back(Card(n, i));
         }
     }
 
     srand(time(nullptr));
-    for (int i  = 0; i < numCards; i ++){
-
+    for (int i  = 0; i < numCards; i++){
         int r = rand() % 52;
         Card temp = cards[i];
 
