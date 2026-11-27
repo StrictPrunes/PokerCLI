@@ -44,12 +44,9 @@ int main(){
 
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
         //game.start();
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < 4; i++){
             topBanner("Round " + to_string(i + 1));
-            cout << "Round UI Test " << i + 1;
-            
-            cin.get();
-            //game.bettingRound();
+            game.bettingRound();
         }
         //game.showdown();
 

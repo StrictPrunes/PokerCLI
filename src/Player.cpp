@@ -216,7 +216,10 @@ void Player::resetHand(){
 
 int Player::takeBet(){
     chips -= bet;
-    return bet;
+    int giveBet = bet;
+    bet = 0;
+    
+    return giveBet;
 }
 
 void Player::addCard(Card c){
@@ -224,7 +227,7 @@ void Player::addCard(Card c){
 }
 
 bool Player::makeBet(int newBet){
-    if(newBet < chips){
+    if(newBet <= chips - bet){
         bet += newBet;
         return true;
     }
