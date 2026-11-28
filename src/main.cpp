@@ -81,14 +81,69 @@ int startScreen(){
     return ins;
 }
 
+
 void rules(){
-    topBanner("RULES");
-    cout << "1.\n";
-    cout << "2.\n";
-    cout << "Press enter to exit.\n";
-    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    topBanner("POKER RULES");
+
+    cout << "======================= HOW TO PLAY =======================\n\n";
+
+    cout << "1. Check:\n";
+    cout << "   Pass the action to the next player without betting.\n";
+    cout << "   Only allowed when no bet has been made in the current round.\n\n";
+
+    cout << "2. Bet:\n";
+    cout << "   Put chips into the pot to start the betting for the round.\n\n";
+
+    cout << "3. Call:\n";
+    cout << "   Match the current highest bet by putting in enough chips.\n\n";
+
+    cout << "4. Raise:\n";
+    cout << "   Increase the current bet, forcing other players to either\n";
+    cout << "   match the new amount, raise again, or fold.\n\n";
+
+    cout << "5. Fold:\n";
+    cout << "   Give up your hand and leave the current round.\n";
+    cout << "   Any chips already contributed to the pot are forfeited.\n\n";
+
+    cout << "======================= GAME TERMS ========================\n\n";
+
+    cout << "6. Blinds:\n";
+    cout << "   Forced bets made before the cards are dealt.\n";
+    cout << "   The player left of the dealer posts the Small Blind,\n";
+    cout << "   and the next player posts the Big Blind.\n\n";
+
+    cout << "7. Pot:\n";
+    cout << "   The total amount of chips bet by all players during a hand.\n\n";
+
+    cout << "8. Dealer Button:\n";
+    cout << "   Indicates the dealer position and moves clockwise after\n";
+    cout << "   each hand. It determines who posts the blinds.\n\n";
+
+    cout << "9. Community Cards:\n";
+    cout << "   Five shared cards placed face-up in the middle of the table.\n";
+    cout << "   All remaining players can use these cards to make their hand.\n\n";
+
+    cout << "======================= HAND RANKINGS =====================\n\n";
+
+    cout << "From strongest to weakest:\n";
+    cout << "1. Royal Flush       - A, K, Q, J, 10 of the same suit.\n";
+    cout << "2. Straight Flush    - Five consecutive cards of the same suit.\n";
+    cout << "3. Four of a Kind    - Four cards of the same rank.\n";
+    cout << "4. Full House        - Three of a kind and a pair.\n";
+    cout << "5. Flush             - Five cards of the same suit.\n";
+    cout << "6. Straight          - Five consecutive cards.\n";
+    cout << "7. Three of a Kind   - Three cards of the same rank.\n";
+    cout << "8. Two Pair          - Two different pairs.\n";
+    cout << "9. One Pair          - Two cards of the same rank.\n";
+    cout << "10. High Card        - No combination; highest card wins.\n\n";
+
+    cout << "============================================================\n";
+    cout << "Press ENTER to return to the main menu...\n";
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
+
 
 int startSelection(){
     int ins = -1;
